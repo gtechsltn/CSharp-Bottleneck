@@ -280,3 +280,17 @@ public class NetworkIoBottleneck
     }
 }
 ```
+
+# General Tips for Creating Bottlenecks in C#
+
+## Profiling Tools: 
+Use built-in .NET profiling tools (like those in Visual Studio's Performance Profiler, or dotTrace, ANTS Performance Profiler) to verify that your intentional bottlenecks are indeed showing up in CPU, Memory, Disk, or Network graphs.
+
+## Resource Monitoring: 
+While your C# app is running, open your operating system's task manager (Windows) or activity monitor (macOS) / top, htop, iotop (Linux) to observe CPU, Memory, Disk I/O, and Network usage.
+
+## Adjust Parameters: 
+The example code includes parameters (iterations, totalSizeMB, fileSizeMB, numberOfRequests, maxConcurrentRequests). Experiment with these values to create more or less severe bottlenecks based on your system's capabilities.
+
+## Warning: 
+Be cautious when creating severe memory or disk I/O bottlenecks, especially on your primary development machine, as they can lead to system instability or crashes. Always save your work before running highly resource-intensive tests.
